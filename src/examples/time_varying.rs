@@ -3,6 +3,15 @@ use stable_eyre::Report;
 use rand::Rng;
 use crate::gfx::core::{VulkanInitialiser, VulkanInterface};
 use std::sync::Arc;
+use vulkano::descriptor::DescriptorSet;
+
+struct TimeVarying {
+    x: f32,
+    y: f32,
+    v_x: f32,
+    v_y: f32,
+    set: Arc<dyn DescriptorSet>,
+}
 
 pub fn main() -> Result<(), Report> {
     let vk = VulkanInitialiser::new()?;
